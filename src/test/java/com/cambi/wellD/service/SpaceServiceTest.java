@@ -56,7 +56,7 @@ public class SpaceServiceTest {
     }
 
     @Test
-    public void should_find_all_line() {
+    public void should_find_all_lines() {
 
         int NPoints = 2;
 

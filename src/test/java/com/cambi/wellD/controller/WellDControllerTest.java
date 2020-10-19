@@ -50,7 +50,7 @@ public class WellDControllerTest {
     }
 
     @Test
-    public void should_find_all_line() throws Exception {
+    public void should_find_all_lines() throws Exception {
         mockMvc.perform(get("/wellD/lines/2")
                 .contentType(mediaType))
                 .andExpect(status().isOk())
