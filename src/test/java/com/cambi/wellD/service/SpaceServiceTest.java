@@ -68,7 +68,13 @@ public class SpaceServiceTest {
     }
 
     @Test
-    public void should_delete_all_point() {
+    public void should_delete_all_points() {
+
+        Point point1 = new Point(1.0, 2.0);
+
+        spaceService.addPoint(point1);
+
+        assertEquals(1, spaceService.getSpace().size());
 
         spaceService.deleteSpace();
 
