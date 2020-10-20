@@ -2,7 +2,7 @@ package com.cambi.wellD.service;
 
 import com.cambi.wellD.exception.WellDException;
 import com.cambi.wellD.model.Point;
-import com.cambi.wellD.util.LineUtil;
+import com.cambi.wellD.utils.LineUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

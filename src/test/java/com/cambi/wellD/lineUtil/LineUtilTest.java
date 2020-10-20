@@ -1,10 +1,11 @@
 package com.cambi.wellD.lineUtil;
 
 import com.cambi.wellD.model.Point;
-import com.cambi.wellD.util.LineUtil;
+import com.cambi.wellD.utils.LineUtil;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class LineUtilTest {
 

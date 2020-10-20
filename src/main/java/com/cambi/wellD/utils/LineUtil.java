@@ -1,4 +1,4 @@
-package com.cambi.wellD.util;
+package com.cambi.wellD.utils;
 
 import com.cambi.wellD.model.Point;
 
