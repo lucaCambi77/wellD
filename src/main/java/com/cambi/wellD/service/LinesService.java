@@ -1,6 +1,6 @@
 package com.cambi.wellD.service;
 
-import com.cambi.wellD.exception.LineException;
+import com.cambi.wellD.exception.WellDException;
 import com.cambi.wellD.model.Point;
 import com.cambi.wellD.util.LineUtil;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class LinesService {
     public Map<String, Set<Point>> getLineSegments(int points, Set<Point> input) {
 
         if (input.size() < 2)
-            throw new LineException("Input size must be greater than 2");
+            throw new WellDException("Input size must be greater than 2");
 
         Map<String, Set<Point>> map = new HashMap<>();
 

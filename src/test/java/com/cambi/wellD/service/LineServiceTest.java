@@ -1,6 +1,6 @@
 package com.cambi.wellD.service;
 
-import com.cambi.wellD.exception.LineException;
+import com.cambi.wellD.exception.WellDException;
 import com.cambi.wellD.model.Point;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,7 +30,7 @@ public class LineServiceTest {
         Set<Point> input = new HashSet<>();
         input.add(new Point(1.0, 2.0));
 
-        assertThrows(LineException.class
+        assertThrows(WellDException.class
                 , () -> linesService.getLineSegments(2, input)
                 , "Should throw exception when space size less than 2");
     }

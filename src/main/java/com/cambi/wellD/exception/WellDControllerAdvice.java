@@ -10,11 +10,11 @@ import java.util.Date;
 
 public class WellDControllerAdvice {
 
-    @ExceptionHandler(LineException.class)
+    @ExceptionHandler(WellDException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public
     @ResponseBody
-    ResponseEntity<ErrorResponse> writeLineExceptionBadRequestResponse(LineException ex) {
+    ResponseEntity<ErrorResponse> writeLineExceptionBadRequestResponse(WellDException ex) {
         HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
 
         ErrorResponse errorResponse = ErrorResponse.builder()
