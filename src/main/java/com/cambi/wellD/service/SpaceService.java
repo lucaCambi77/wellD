@@ -1,5 +1,6 @@
 package com.cambi.wellD.service;
 
+import com.cambi.wellD.exception.WellDException;
 import com.cambi.wellD.model.Point;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,9 @@ public class SpaceService {
     private final LinesService linesService;
 
     public void addPoint(Point point) {
+        if (null == point || point.getX() == null || point.getY() == null)
+            throw new WellDException("Input point should be valid e.g. -> {\"x\"=0.0, \"y\"=0.0}");
+
         space.add(point);
     }
 

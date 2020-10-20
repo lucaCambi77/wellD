@@ -2,7 +2,6 @@ package com.cambi.wellD.service;
 
 import com.cambi.wellD.exception.WellDException;
 import com.cambi.wellD.model.Point;
-import com.cambi.wellD.utils.LineUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;

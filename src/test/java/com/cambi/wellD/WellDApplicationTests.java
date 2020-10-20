@@ -9,5 +9,4 @@ class WellDApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

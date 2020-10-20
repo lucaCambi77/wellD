@@ -1,5 +1,6 @@
 package com.cambi.wellD.service;
 
+import com.cambi.wellD.exception.WellDException;
 import com.cambi.wellD.model.Point;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,8 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
@@ -82,5 +82,21 @@ public class SpaceServiceTest {
 
         verify(linesService, times(1)).getLineSegments(NPoints, new HashSet<>());
         assertEquals(2, space.size());
+    }
+
+    @Test
+    public void should_fail_points_add_invalid_input() {
+
+        assertThrows(WellDException.class
+                , () -> spaceService.addPoint(null)
+                , "Should throw for null input");
+
+        assertThrows(WellDException.class
+                , () -> spaceService.addPoint(new Point(null, 1.0))
+                , "Should throw for invalid input");
+
+        assertThrows(WellDException.class
+                , () -> spaceService.addPoint(new Point(1.0, null))
+                , "Should throw for invalid input");
     }
 }

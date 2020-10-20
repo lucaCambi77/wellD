@@ -110,4 +110,32 @@ public class WellDControllerTest {
                 .andExpect(jsonPath("$.space", hasSize(0)))
                 .andReturn();
     }
+
+    @Test
+    public void should_fail_for_invalid_input() throws Exception {
+
+        mockMvc.perform(post("/wellD/point")
+                .contentType(mediaType)
+                .content("{}"))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentType(mediaType))
+                .andDo(print())
+                .andReturn();
+
+        mockMvc.perform(post("/wellD/point")
+                .contentType(mediaType)
+                .content(objectMapper.writeValueAsString(new Point(null, 1.0))))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentType(mediaType))
+                .andDo(print())
+                .andReturn();
+
+        mockMvc.perform(post("/wellD/point")
+                .contentType(mediaType)
+                .content(objectMapper.writeValueAsString(new Point(1.0, null))))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentType(mediaType))
+                .andDo(print())
+                .andReturn();
+    }
 }
