@@ -78,7 +78,7 @@ public class LineServiceTest {
     }
 
     @Test
-    public void should_find_correct_segments_three_points_space_size_3() {
+    public void should_find_correct_segments_three_points_space_size_4() {
 
         Set<Point> input = new HashSet<>();
         input.add(new Point(1.0, 1.0));
