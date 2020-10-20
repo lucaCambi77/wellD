@@ -15,7 +15,7 @@ public class LineUtil {
             return "Y=" + Q.getY();
 
         double slope = (Q.getY() - P.getY()) / (Q.getX() - P.getX());
-
+ 
         double roundedSlope = new BigDecimal(Double.toString(slope))
                 .setScale(3, RoundingMode.HALF_UP).doubleValue();
 
