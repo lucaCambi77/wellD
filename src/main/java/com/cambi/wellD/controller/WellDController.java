@@ -30,7 +30,7 @@ public class WellDController {
                         .build());
     }
 
-    @RequestMapping(value = "/lines/{n}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/lines/{n}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<WellDSegmentsResponse> lines(@PathVariable int n) {
         return ResponseEntity.ok(
                 WellDSegmentsResponse.builder().segments(
@@ -38,7 +38,7 @@ public class WellDController {
                         .build());
     }
 
-    @RequestMapping(value = "/space", method = RequestMethod.DELETE, produces = {"application/json"})
+    @RequestMapping(value = "/space", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<WellDSpaceResponse> cleanSpace() {
         return ResponseEntity.ok(
                 WellDSpaceResponse.builder().space(
