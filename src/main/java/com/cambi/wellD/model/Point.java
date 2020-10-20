@@ -1,15 +1,12 @@
 package com.cambi.wellD.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
+@AllArgsConstructor
 @Data
 public class Point {
 
-    private Double x;
-    private Double y;
-
-    public Point(Double x, Double y) {
-        this.x = x;
-        this.y = y;
-    }
+    final Double x;
+    final Double y;
 }

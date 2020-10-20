@@ -4,8 +4,7 @@ import com.cambi.wellD.model.Point;
 import com.cambi.wellD.utils.LineUtil;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LineUtilTest {
 
@@ -87,12 +86,12 @@ public class LineUtilTest {
 
     @Test
     public void check_Decimal_Zero_One_Double() {
-        assertEquals(true, checkDecimals(0.0, 0));
-        assertEquals(true, checkDecimals(0.000, 0));
-        assertEquals(false, checkDecimals(0.001, 0));
-        assertEquals(false, checkDecimals(1.001, 0));
-        assertEquals(true, checkDecimals(1.000, 1));
-        assertEquals(true, checkDecimals(1.0, 1));
+        assertTrue(checkDecimals(0.0, 0));
+        assertTrue(checkDecimals(0.000, 0));
+        assertFalse(checkDecimals(0.001, 0));
+        assertFalse(checkDecimals(1.001, 0));
+        assertTrue(checkDecimals(1.000, 1));
+        assertTrue(checkDecimals(1.0, 1));
     }
 
     private boolean checkDecimals(Double a, int b) {

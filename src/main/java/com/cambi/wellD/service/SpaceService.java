@@ -28,7 +28,8 @@ public class SpaceService {
         return linesService.getLineSegments(points, space);
     }
 
-    public void deleteSpace() {
+    public Set<Point> cleanSpace() {
         space = new HashSet<>();
+        return space;
     }
 }

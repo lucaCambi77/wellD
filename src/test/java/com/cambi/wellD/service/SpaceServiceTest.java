@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
@@ -42,8 +43,8 @@ public class SpaceServiceTest {
         Set<Point> space1 = spaceService.getSpace();
         assertEquals(2, space1.size());
 
-        assertEquals(true, space1.stream().anyMatch(p -> p.equals(point1)));
-        assertEquals(true, space1.stream().anyMatch(p -> p.equals(point2)));
+        assertTrue(space1.stream().anyMatch(p -> p.equals(point1)));
+        assertTrue(space1.stream().anyMatch(p -> p.equals(point2)));
 
         Point point3 = new Point(2.0, 2.0);
 
@@ -60,7 +61,7 @@ public class SpaceServiceTest {
 
         assertEquals(1, spaceService.getSpace().size());
 
-        spaceService.deleteSpace();
+        spaceService.cleanSpace();
 
         Set<Point> space = spaceService.getSpace();
 

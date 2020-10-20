@@ -14,8 +14,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(JUnitPlatform.class)
 @ExtendWith(MockitoExtension.class)
@@ -59,9 +58,9 @@ public class LineServiceTest {
         Map<String, Set<Point>> map = linesService.getLineSegments(2, input);
 
         assertEquals(3, map.size());
-        assertEquals(true, map.entrySet().stream().anyMatch(e -> e.getKey().equals("Y=X")));
-        assertEquals(true, map.entrySet().stream().anyMatch(e -> e.getKey().equals("Y=1.0")));
-        assertEquals(true, map.entrySet().stream().anyMatch(e -> e.getKey().equals("Y=0.333X+1.333")));
+        assertTrue(map.entrySet().stream().anyMatch(e -> e.getKey().equals("Y=X")));
+        assertTrue(map.entrySet().stream().anyMatch(e -> e.getKey().equals("Y=1.0")));
+        assertTrue(map.entrySet().stream().anyMatch(e -> e.getKey().equals("Y=0.333X+1.333")));
     }
 
     @Test
@@ -94,11 +93,11 @@ public class LineServiceTest {
         Map<String, Set<Point>> map = linesService.getLineSegments(3, input);
 
         assertEquals(1, map.size());
-        assertEquals(true, map.entrySet().stream().anyMatch(e -> e.getKey().equals("Y=X")));
+        assertTrue(map.entrySet().stream().anyMatch(e -> e.getKey().equals("Y=X")));
 
         Set<Point> set = map.entrySet().iterator().next().getValue();
 
         assertEquals(3, set.size());
-        assertEquals(true, set.containsAll(Arrays.asList(p1, p2, p3)));
+        assertTrue(set.containsAll(Arrays.asList(p1, p2, p3)));
     }
 }

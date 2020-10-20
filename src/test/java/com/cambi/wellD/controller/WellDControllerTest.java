@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -32,11 +32,12 @@ public class WellDControllerTest {
         Point point = new Point(1.0, 2.0);
 
         mockMvc.perform(post("/wellD/point")
-                .contentType(MediaType.APPLICATION_JSON)
+                .contentType(mediaType)
                 .content(objectMapper.writeValueAsString(point)))
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType(mediaType))
-                .andExpect(jsonPath("$.data.point", notNullValue()))
+                .andExpect(jsonPath("$.x", is(1.0)))
+                .andExpect(jsonPath("$.y", is(2.0)))
                 .andReturn();
     }
 
@@ -46,24 +47,67 @@ public class WellDControllerTest {
                 .contentType(mediaType))
                 .andExpect(status().isOk())
                 .andDo(print())
+                .andExpect(jsonPath("$.space").isArray())
+                .andExpect(jsonPath("$.space", hasSize(0)))
+                .andReturn();
+
+        mockMvc.perform(post("/wellD/point")
+                .contentType(mediaType)
+                .content(objectMapper.writeValueAsString(new Point(1.0, 2.0))))
+                .andExpect(status().isCreated())
+                .andExpect(content().contentType(mediaType))
+                .andReturn();
+
+        mockMvc.perform(get("/wellD/space/")
+                .contentType(mediaType))
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(jsonPath("$.space").isArray())
+                .andExpect(jsonPath("$.space", hasSize(1)))
                 .andReturn();
     }
 
     @Test
     public void should_find_all_lines() throws Exception {
+
+        mockMvc.perform(post("/wellD/point")
+                .contentType(mediaType)
+                .content(objectMapper.writeValueAsString(new Point(0.0, 1.0))))
+                .andReturn();
+
+        mockMvc.perform(post("/wellD/point")
+                .contentType(mediaType)
+                .content(objectMapper.writeValueAsString(new Point(1.0, 2.0))))
+                .andReturn();
+
         mockMvc.perform(get("/wellD/lines/2")
                 .contentType(mediaType))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.segments").isMap())
+                .andExpect(jsonPath("$.segments", hasKey("Y=X+1.0")))
                 .andDo(print())
                 .andReturn();
     }
 
     @Test
     public void should_delete_all_point() throws Exception {
+
+        mockMvc.perform(post("/wellD/point")
+                .contentType(mediaType)
+                .content(objectMapper.writeValueAsString(new Point(1.0, 2.0))))
+                .andReturn();
+
+        mockMvc.perform(get("/wellD/space/")
+                .contentType(mediaType))
+                .andExpect(jsonPath("$.space").isArray())
+                .andExpect(jsonPath("$.space", hasSize(1)))
+                .andReturn();
+
         mockMvc.perform(delete("/wellD/space")
                 .contentType(mediaType))
                 .andExpect(status().isOk())
-                .andDo(print())
+                .andExpect(jsonPath("$.space").isArray())
+                .andExpect(jsonPath("$.space", hasSize(0)))
                 .andReturn();
     }
 }
