@@ -1,5 +1,7 @@
 # WellD code challenge
 
+[See description](WellD-pattern-recognition.pdf)
+
 ## Requirements : 
 
 * Java11
