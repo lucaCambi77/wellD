@@ -1,4 +1,6 @@
-package com.cambi.wellD;
+package com.cambi.wellD.util;
+
+import com.cambi.wellD.model.Point;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

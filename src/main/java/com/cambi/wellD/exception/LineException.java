@@ -1,4 +1,4 @@
-package com.cambi.wellD;
+package com.cambi.wellD.exception;
 
 public class LineException extends RuntimeException {
 

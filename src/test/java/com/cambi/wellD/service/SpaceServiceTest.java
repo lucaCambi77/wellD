@@ -1,8 +1,6 @@
 package com.cambi.wellD.service;
 
-import com.cambi.wellD.LinesService;
-import com.cambi.wellD.Point;
-import com.cambi.wellD.SpaceService;
+import com.cambi.wellD.model.Point;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;

@@ -1,4 +1,4 @@
-package com.cambi.wellD;
+package com.cambi.wellD.model;
 
 import lombok.Data;
 

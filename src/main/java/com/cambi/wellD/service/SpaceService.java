@@ -1,5 +1,6 @@
-package com.cambi.wellD;
+package com.cambi.wellD.service;
 
+import com.cambi.wellD.model.Point;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

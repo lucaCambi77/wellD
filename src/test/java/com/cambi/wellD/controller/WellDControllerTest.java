@@ -1,7 +1,7 @@
 package com.cambi.wellD.controller;
 
-import com.cambi.wellD.Point;
 import com.cambi.wellD.WellDApplication;
+import com.cambi.wellD.model.Point;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
