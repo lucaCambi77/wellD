@@ -25,7 +25,7 @@ public class LineServiceTest {
     private LinesService linesService;
 
     @Test
-    public void should_throw_when_space_size_less_two() {
+    public void should_throw_when_space_size_less_than_two() {
 
         Set<Point> input = new HashSet<>();
         input.add(new Point(1.0, 2.0));
