@@ -16,12 +16,12 @@ public class LineUtil {
 
         double slope = (Q.getY() - P.getY()) / (Q.getX() - P.getX());
 
-        slope = new BigDecimal(Double.toString(slope))
+        double roundedSlope = new BigDecimal(Double.toString(slope))
                 .setScale(3, RoundingMode.HALF_UP).doubleValue();
 
-        double c = (slope * -Q.getX()) - (-Q.getY());
+        double c = (roundedSlope * -Q.getX()) - (-Q.getY());
 
-        return "Y=" + (slope == 1 ? "" : slope) + "X"
+        return "Y=" + (roundedSlope == 1 ? "" : roundedSlope) + "X"
                 + (c == 0 ? "" : (Math.signum(c) == 1.0 ? "+" : "-")
                 + c);
     }

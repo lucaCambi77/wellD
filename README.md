@@ -39,3 +39,7 @@
 * Remove all points from the space
 
 `DELETE - http://localhost:8083/wellD/space`
+
+## N.B.
+
+Line slope has 3 decimals round up
