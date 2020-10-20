@@ -16,6 +16,9 @@ public class LinesService {
         if (input.size() < 2)
             throw new WellDException("Input size must be greater than 2");
 
+        if (points < 2)
+            throw new WellDException("Lines should match more than 1 point");
+
         Map<String, Set<Point>> map = new HashMap<>();
 
         List<Point> list = new ArrayList<>(input);

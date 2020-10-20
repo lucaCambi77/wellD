@@ -2,6 +2,7 @@ package com.cambi.wellD.service;
 
 import com.cambi.wellD.exception.WellDException;
 import com.cambi.wellD.model.Point;
+import com.cambi.wellD.utils.LineUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
@@ -99,5 +100,20 @@ public class LineServiceTest {
 
         assertEquals(3, set.size());
         assertTrue(set.containsAll(Arrays.asList(p1, p2, p3)));
+    }
+
+    @Test
+    public void should_fail_points_matcher_less_than_two() {
+
+        Point p1 = new Point(1.0, 1.0);
+        Point p2 = new Point(2.0, 2.0);
+
+        Set<Point> input = new HashSet<>();
+        input.add(p1);
+        input.add(p2);
+
+        assertThrows(WellDException.class
+                , () -> linesService.getLineSegments(1, input)
+        , "Should throw for line matcher less than 2");
     }
 }
