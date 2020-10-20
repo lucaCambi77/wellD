@@ -20,7 +20,7 @@
 ./gradlew bootRun
 ```
 
-##Endpoints : 
+## Endpoints : 
 
 * Add a point to the space 
 
