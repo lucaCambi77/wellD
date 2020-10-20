@@ -1,5 +1,8 @@
 package com.cambi.wellD;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class LineUtil {
 
     public static String getLineEquationFrom(Point P, Point Q) {
@@ -11,8 +14,13 @@ public class LineUtil {
 
         double slope = (Q.getY() - P.getY()) / (Q.getX() - P.getX());
 
+        slope = new BigDecimal(Double.toString(slope))
+                .setScale(3, RoundingMode.HALF_UP).doubleValue();
+
         double c = (slope * -Q.getX()) - (-Q.getY());
 
-        return "Y=" + slope + "X" + (Math.signum(c) == 1.0 ? "+" : "-") + c;
+        return "Y=" + (slope == 1 ? "" : slope) + "X"
+                + (c == 0 ? "" : (Math.signum(c) == 1.0 ? "+" : "-")
+                + c);
     }
 }
