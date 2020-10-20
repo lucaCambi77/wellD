@@ -1,5 +1,7 @@
-package com.cambi.wellD;
+package com.cambi.wellD.lineUtil;
 
+import com.cambi.wellD.LineUtil;
+import com.cambi.wellD.Point;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 @RequiredArgsConstructor
@@ -22,8 +23,8 @@ public class SpaceService {
         return space;
     }
 
-    public Set<Point> getLines(int points) {
-        return linesService.getLines(points);
+    public Map<String, Set<Point>> getLineSegments(int points) {
+        return linesService.getLineSegments(points, space);
     }
 
     public void deleteSpace() {

@@ -11,9 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -56,18 +54,6 @@ public class SpaceServiceTest {
     }
 
     @Test
-    public void should_find_all_lines() {
-
-        int NPoints = 2;
-
-        when(linesService.getLines(anyInt())).thenReturn(new HashSet<>(Arrays.asList(new Point(1.0, 2.0), new Point(2.0, 2.0))));
-        Set<Point> space = spaceService.getLines(NPoints);
-
-        verify(linesService, times(1)).getLines(NPoints);
-        assertEquals(2, space.size());
-    }
-
-    @Test
     public void should_delete_all_points() {
 
         Point point1 = new Point(1.0, 2.0);
@@ -81,5 +67,21 @@ public class SpaceServiceTest {
         Set<Point> space = spaceService.getSpace();
 
         assertEquals(0, space.size());
+    }
+
+    @Test
+    public void should_find_all_lines() {
+
+        int NPoints = 2;
+
+        when(linesService.getLineSegments(anyInt(), anySet())).thenReturn(new HashMap<>() {{
+            put("equation1", new HashSet(Arrays.asList(new Point(1.0, 2.0), new Point(2.0, 2.0))));
+            put("equation2", new HashSet(Arrays.asList(new Point(0.0, 2.0), new Point(4.0, 2.0))));
+        }});
+
+        Map<String, Set<Point>> space = spaceService.getLineSegments(NPoints);
+
+        verify(linesService, times(1)).getLineSegments(NPoints, new HashSet<>());
+        assertEquals(2, space.size());
     }
 }
