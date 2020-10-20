@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -80,15 +81,25 @@ public class LineServiceTest {
     @Test
     public void should_find_correct_segments_three_points_on_a_line() {
 
+        Point p1 = new Point(1.0, 1.0);
+        Point p2 = new Point(2.0, 2.0);
+        Point p3 = new Point(3.0, 3.0);
+        Point p4 = new Point(-1.0, 1.0);
+
         Set<Point> input = new HashSet<>();
-        input.add(new Point(1.0, 1.0));
-        input.add(new Point(2.0, 2.0));
-        input.add(new Point(3.0, 3.0));
-        input.add(new Point(-1.0, 1.0));
+        input.add(p1);
+        input.add(p2);
+        input.add(p3);
+        input.add(p4);
 
         Map<String, Set<Point>> map = linesService.getLineSegments(3, input);
 
         assertEquals(1, map.size());
         assertEquals(true, map.entrySet().stream().anyMatch(e -> e.getKey().equals("Y=X")));
+
+        Set<Point> set = map.entrySet().iterator().next().getValue();
+
+        assertEquals(3, set.size());
+        assertEquals(true, set.containsAll(Arrays.asList(p1, p2, p3)));
     }
 }
