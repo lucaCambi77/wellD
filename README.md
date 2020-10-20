@@ -42,4 +42,4 @@
 
 ## N.B.
 
-Line slope has 3 decimals round up
+Line slope has 3 decimals round up 
