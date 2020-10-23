@@ -4,8 +4,6 @@ import com.cambi.wellD.exception.WellDException;
 import com.cambi.wellD.model.Point;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -16,7 +14,6 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@RunWith(JUnitPlatform.class)
 @ExtendWith(MockitoExtension.class)
 public class LineServiceTest {
 

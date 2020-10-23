@@ -4,8 +4,6 @@ import com.cambi.wellD.model.Point;
 import com.cambi.wellD.service.SpaceService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -18,7 +16,6 @@ import java.util.HashSet;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@RunWith(JUnitPlatform.class)
 @ExtendWith(MockitoExtension.class)
 public class WellDControllerUnitTest {
 

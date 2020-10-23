@@ -16,7 +16,6 @@ public class WellDController {
     final SpaceService spaceService;
 
     @RequestMapping(value = "/point", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Point> addPoint(@RequestBody Point point) {
         spaceService.addPoint(point);
         return ResponseEntity.status(HttpStatus.CREATED).body(point);
