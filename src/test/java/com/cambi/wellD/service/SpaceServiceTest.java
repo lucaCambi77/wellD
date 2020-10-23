@@ -71,13 +71,13 @@ public class SpaceServiceTest {
         int NPoints = 2;
 
         when(linesService.getLineSegments(anyInt(), anySet())).thenReturn(new HashMap<>() {{
-            put("equation1", new HashSet(Arrays.asList(new Point(1.0, 2.0), new Point(2.0, 2.0))));
-            put("equation2", new HashSet(Arrays.asList(new Point(0.0, 2.0), new Point(4.0, 2.0))));
+            put("equation1", new HashSet<>(Arrays.asList(new Point(1.0, 2.0), new Point(2.0, 2.0))));
+            put("equation2", new HashSet<>(Arrays.asList(new Point(0.0, 2.0), new Point(4.0, 2.0))));
         }});
 
         Map<String, Set<Point>> space = spaceService.getLineSegments(NPoints);
 
-        verify(linesService, times(1)).getLineSegments(NPoints, new HashSet<>());
+        verify(linesService).getLineSegments(NPoints, new HashSet<>());
         assertEquals(2, space.size());
     }
 
