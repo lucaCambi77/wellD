@@ -1,14 +1,16 @@
-package com.cambi.wellD.controller;
+package com.cambi.wellD.response;
 
 import com.cambi.wellD.model.Point;
 import lombok.Builder;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 import java.util.Set;
 
 @Value
 @Builder
+@Jacksonized
 public class WellDSpaceResponse {
 
-    final Set<Point> space;
+    Set<Point> space;
 }

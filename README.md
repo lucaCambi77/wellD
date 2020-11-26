@@ -22,23 +22,10 @@
 ./gradlew bootRun
 ```
 
-## Endpoints : 
 
-* Add a point to the space 
+## Documentation : 
 
-``POST - http://localhost:8083/wellD/point``
-
-* Get all points in the space
-
-`GET - http://localhost:8083/wellD/space`
-
-* Get all line segments passing through at least n points
-
-`GET - http://localhost:8083/wellD/point/{n}`
-
-* Remove all points from the space
-
-`DELETE - http://localhost:8083/wellD/space`
+http://localhost:8083/swagger-ui.html#/
 
 ## N.B.
 
